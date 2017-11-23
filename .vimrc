@@ -54,9 +54,8 @@ highlight ColorColumn ctermbg=black
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-"" Lightline
-"" -----------------------------------
-" let g:lightline = {'colorscheme': 'wombat'}
+" Error highlighting
+:highlight ALEError ctermbg=none cterm=underline
 
 "Nerdtree
 "-----------------------------------
@@ -67,3 +66,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if ( winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree() ) | q | endif
 
 let NERDTreeIgnore=['\.o$', '\.a$', '^00', '^tags$', '\.d$']
+
+" Ale config
+let g:airline#extensions#ale#enabled = 1
+let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 'always'
+
+let g:ale_set_highlights = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+let g:ale_set_signs = 1

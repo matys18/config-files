@@ -15,3 +15,6 @@ GIT_PROMPT_ONLY_IN_REPO=0 # Use the default prompt when not in a git repo.
 GIT_PROMPT_FETCH_REMOTE_STATUS=1 # Avoid fetching remote status
 GIT_PROMPT_SHOW_UPSTREAM=1 # Don't display upstream tracking branch
 GIT_SHOW_UNTRACKED_FILES=no # Don't count untracked files (no, normal, all)
+
+# Set vi bindings
+set -o vi
