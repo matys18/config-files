@@ -8,6 +8,7 @@ Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 Plug 'flazz/vim-colorschemes'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
