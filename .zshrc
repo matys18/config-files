@@ -73,6 +73,7 @@ plugins=(
   docker  # Docker aliases & autocomplete
   python  # Aliases for python
   pip  # Aliases for pip
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,3 +118,11 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Update path for Postgres utils
 PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
 
+# Include bbprofile file
+source ~/.bbprofile
+
+alias remove-swapfiles='find . -name ".*.sw*" -exec rm {} \;'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export VIRTUAL_ENV_DISABLE_PROMPT=

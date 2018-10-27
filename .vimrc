@@ -9,11 +9,15 @@ Plug 'w0rp/ale'
 Plug 'flazz/vim-colorschemes'
 Plug 'Yggdroot/indentLine'
 Plug 'davidhalter/jedi-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  "Fuzzy search
+Plug 'leafgarland/typescript-vim'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
 
 " Syntax highlighting
 syntax on
+"color github
 color hybrid_reverse
 filetype plugin indent on
 
@@ -24,16 +28,25 @@ set expandtab
 set autoindent 
 set shiftwidth=4  "this is the level of auto indent, adjust to taste
 set ruler
-set number
+set number relativenumber
 set backspace=indent,eol,start
 set encoding=utf-8
+
 set visualbell
 set colorcolumn=125
 set splitright
 set cursorline
+set foldmethod=indent
+
+"Set the swapfile location
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
 
 "Spellcheck settings
-setlocal spell spelllang=en_us
+set spelllang=en_us
+set spell
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 "Use 256 colors
 set t_Co=256
@@ -57,7 +70,8 @@ highlight ColorColumn ctermbg=black
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <C-L> :nohl<CR>
+nnoremap <C-a> :FZF<CR>
 
 " Error highlighting
 :highlight ALEError ctermbg=none cterm=underline
@@ -70,7 +84,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if ( winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree() ) | q | endif
 
-let NERDTreeIgnore=['\.o$', '\.a$', '^00', '^tags$', '\.d$']
+let NERDTreeIgnore=['\.o$', '\.a$', '^00', '^tags$', '\.d$', '\.pyc$', '__pycache__']
 
 " Ale config
 let g:ale_linters = {
@@ -116,3 +130,10 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 
 let g:jedi#use_splits_not_buffers = "right"
+
+" FZF config
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
