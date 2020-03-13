@@ -3,22 +3,22 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'  "File tree
 Plug 'vim-airline/vim-airline' "Airline bar at the bottom
-Plug 'flazz/vim-colorschemes'  "Used for the colorschemes
+"Plug 'flazz/vim-colorschemes'  "Used for the colorschemes
 Plug 'w0rp/ale'  "Used for syntax error highlighting
 Plug 'Yggdroot/indentLine'  "Indentation line guides
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  "Fuzzy searching
 Plug 'Chiel92/vim-autoformat'  "Autoformatter
+Plug 'arcticicestudio/nord-vim'
 
 "Python only
 Plug 'davidhalter/jedi-vim'  "Useful things like jump to definition
 
 call plug#end()
 
-
 "Colors & syntax highlighting
 syntax on  "Turn on syntax highlighting
 filetype plugin indent on
-color hybrid_reverse  "Set the colorscheme
+color nord "Set the colorscheme
 
 "Information on the following setting can be found with
 ":help set
